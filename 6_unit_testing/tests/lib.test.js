@@ -45,7 +45,7 @@ test('Should call another function', ()=>{
     // mail.sendMail = function(){
     //    sent = true; 
     // }
-
+    
     //USING JEST MOCK FUNCTIONS
 
     db.getUser = jest.fn().mockReturnValue({id: 2, name: 'Kelly'});
