@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const _ = require('lodash')
 const {User} = require('../models/user')
 const {validateLoginUser: validate} = require('../helpers/validate');
+const config = require('config');
 
 
 router.post('/', async (req, res)=>{
@@ -18,7 +19,7 @@ router.post('/', async (req, res)=>{
         const validPassword = await bcrypt.compare(req.body.password, hashedPass);
         if(!validPassword) return res.status(400).send('Invalid email or password');
         
-        const token = jwt.sign({_id: user._id, isAdmin: user.isAdmin}, 'my-super-top-secret');
+        const token = jwt.sign({_id: user._id, isAdmin: user.isAdmin}, config.get('auth.secret'));
 
         res.header('x-auth-token', token).send('Success')
     }

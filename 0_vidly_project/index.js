@@ -34,6 +34,7 @@ mongoose.connect(config.get('db.url'))
 //mongoose.connect('mongodb://192.168.18.146:27017/mongo-exercises')
  .then(()=> {
    console.log(config.get('db.url'))
+   console.log('Token: ', config.get('auth.secret'))
  })
  .catch(err => console.error(`ERorR::: -------------------
 ${err}`))

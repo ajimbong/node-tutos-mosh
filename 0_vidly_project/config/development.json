@@ -1,5 +1,11 @@
 {
     "db" : {
         "url": "mongodb://ajim-dev.local:27017/mongo-exercises"
+    },
+    "auth" : {
+        "secret" : ""
+    },
+    "server" : {
+        "port" : ""
     }
 }
