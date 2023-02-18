@@ -7,7 +7,6 @@ const {validateCustomer} = require('../helpers/validate')
 
 router.get('/', async (req, res)=>{
     const customers = await Customer.find();
-    throw new Error("Could not get customers")
     res.send(customers)
 })
 

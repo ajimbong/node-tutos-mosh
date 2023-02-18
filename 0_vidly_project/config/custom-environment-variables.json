@@ -1,0 +1,11 @@
+{
+    "db" : {
+        "url": ""
+    },
+    "auth" : {
+        "secret" : "AUTH_SECRET"
+    },
+    "server" : {
+        "port" : "SERVER_PORT"
+    }
+}

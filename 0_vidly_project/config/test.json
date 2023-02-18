@@ -1,0 +1,5 @@
+{
+    "db" : {
+        "url": "mongodb://ajim-dev.local:27017/mongo-exercises-testing"
+    }
+}

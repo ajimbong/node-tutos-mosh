@@ -1,4 +1,7 @@
 require('express-async-errors');
+require('dotenv').config();
+
+const config = require('config');
 const errorHandler = require('./middleware/errorHandler')
 const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
@@ -27,12 +30,16 @@ app.use('/api/auth', auth);
 app.use(errorHandler)
 
 mongoose.set('strictQuery',  true);
-mongoose.connect('mongodb://ajim-dev.local:27017/mongo-exercises')
+mongoose.connect(config.get('db.url'))
 //mongoose.connect('mongodb://192.168.18.146:27017/mongo-exercises')
  .then(()=> {
-    app.listen(port, () => console.log(`Listening on port ${port}...`));
+   console.log(config.get('db.url'))
  })
  .catch(err => console.error(`ERorR::: -------------------
 ${err}`))
+
+const server = app.listen(port, () => console.log(`Listening on port ${port}...`));
+
+module.exports = server;
 
 //"mongoose": "^6.9.0"
